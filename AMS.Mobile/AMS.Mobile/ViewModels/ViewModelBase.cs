@@ -1,4 +1,6 @@
-﻿using Prism.Commands;
+﻿using AMS.Mobile.Helpers;
+using AMS.Mobile.Services;
+using Prism.Commands;
 using Prism.Mvvm;
 using Prism.Navigation;
 using System;
@@ -16,6 +18,14 @@ namespace AMS.Mobile.ViewModels
         {
             get { return _title; }
             set { SetProperty(ref _title, value); }
+        }
+
+
+        private bool _isBusy;
+        public bool IsBusy
+        {
+            get { return _isBusy; }
+            set { SetProperty(ref _isBusy, value); }
         }
 
         public ViewModelBase(INavigationService navigationService)
@@ -41,6 +51,16 @@ namespace AMS.Mobile.ViewModels
         public virtual void Destroy()
         {
 
+        }
+        protected void ShowLoading(string message = null)
+        {
+            message = message ?? "Loading";
+            MessageBus.SendMessage(DialogMessages.DialogShowLoadingMessage, message);
+        }
+
+        protected void HideLoading()
+        {
+            MessageBus.SendMessage(DialogMessages.DialogHideLoadingMessage);
         }
     }
 }

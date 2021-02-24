@@ -1,11 +1,72 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="AMS.Mobile.Views.MainPage"
-             Title="{Binding Title}">
-
-    <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
-        <Label Text="Welcome to Xamarin Forms and Prism!" />
-    </StackLayout>
-
+<ContentPage
+    x:Class="AMS.Mobile.Views.MainPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:xe="clr-namespace:XamEffects;assembly=XamEffects"
+    Title="AMS">
+    <RefreshView Command="{Binding RefreshCommand}" IsRefreshing="{Binding IsBusy, Mode=OneWay}">
+        <CollectionView
+            x:Name="collectionView"
+            Margin="5"
+            ItemsSource="{Binding Items}">
+            <CollectionView.ItemsLayout>
+                <GridItemsLayout Orientation="Vertical" Span="2" />
+            </CollectionView.ItemsLayout>
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid
+                        Padding="5"
+                        xe:Commands.Tap="{Binding Path=BindingContext.OpenInfoPageCommand, Source={x:Reference collectionView}}"
+                        xe:Commands.TapParameter="{Binding .}"
+                        xe:TouchEffect.Color="LightGreen">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="140" />
+                            <RowDefinition Height="auto" />
+                        </Grid.RowDefinitions>
+                        <Frame
+                            Grid.Row="0"
+                            BackgroundColor="LightGray"
+                            HorizontalOptions="Center">
+                            <Ellipse
+                                Fill="Red"
+                                HeightRequest="50"
+                                HorizontalOptions="Center"
+                                VerticalOptions="Center"
+                                WidthRequest="50">
+                                <Ellipse.Triggers>
+                                    <DataTrigger
+                                        Binding="{Binding IsAtGarage}"
+                                        TargetType="Ellipse"
+                                        Value="True">
+                                        <Setter Property="Fill" Value="Red" />
+                                    </DataTrigger>
+                                    <DataTrigger
+                                        Binding="{Binding IsAtGarage}"
+                                        TargetType="Ellipse"
+                                        Value="True">
+                                        <Setter Property="Fill" Value="LightGreen" />
+                                    </DataTrigger>
+                                </Ellipse.Triggers>
+                            </Ellipse>
+                        </Frame>
+                        <Label
+                            Grid.Row="1"
+                            FontSize="16"
+                            HorizontalOptions="Center"
+                            TextColor="Black">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <FormattedString.Spans>
+                                        <Span Text="Tractor " />
+                                        <Span Text="{Binding TractorNumber}" />
+                                    </FormattedString.Spans>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </RefreshView>
 </ContentPage>
