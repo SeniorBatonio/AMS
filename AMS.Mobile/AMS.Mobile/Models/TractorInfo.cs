@@ -6,6 +6,7 @@ namespace AMS.Mobile.Models
     {
         public int TractorNumber { get; set; }
         public bool IsAtGarage { get; set; }
+        public double CurrentFuelLevel { get; set; }
         public IEnumerable<FuelLevelInfo> FuelInfo { get; set; }
     }
 }

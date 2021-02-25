@@ -6,10 +6,17 @@
 
   <ItemGroup>
     <PackageReference Include="Acr.UserDialogs" Version="7.1.0.475" />
+    <PackageReference Include="Microcharts.Forms" Version="0.9.5.9" />
     <PackageReference Include="Xamarin.Forms" Version="4.8.0.1364" />
     <PackageReference Include="Xamarin.Essentials.Interfaces" Version="1.5.3.2" />
     <PackageReference Include="Prism.DryIoc.Forms" Version="8.0.0.1909" />
     <PackageReference Include="XamEffects" Version="1.6.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Views\TractorDetailsPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
   </ItemGroup>
 
 </Project>

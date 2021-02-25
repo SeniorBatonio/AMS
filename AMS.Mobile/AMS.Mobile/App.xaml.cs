@@ -28,6 +28,7 @@ namespace AMS.Mobile
 
             containerRegistry.RegisterForNavigation<NavigationPage>();
             containerRegistry.RegisterForNavigation<MainPage, MainPageViewModel>();
+            containerRegistry.RegisterForNavigation<TractorDetailsPage, TractorDetailsPageViewModel>();
         }
     }
 }
