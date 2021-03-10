@@ -1,0 +1,53 @@
+version: "3.7"
+
+services:
+  node-red:
+    image: nodered/node-red:latest
+    networks:
+      - node-red-net
+    environment:
+      - TZ=Europe/Kyiv
+    ports:
+      - "1880:1880"
+    volumes:
+      - ./configuration/node-red-data:/data
+
+  database:
+    image: "postgres" # use latest official postgres version
+    networks:
+      - node-red-net
+    env_file:
+      - database.env # configure postgres
+    volumes:
+      - database-data:/var/lib/postgresql/data/
+    
+  dpadmin:
+    image: "dpage/pgadmin4"
+    networks:
+      - node-red-net
+    env_file:
+      - dpadmin.env
+    ports:
+      - 5050:80
+
+
+  mosquitto:
+    image: eclipse-mosquitto
+    networks:
+      - node-red-net
+    expose:
+        - "1883"
+        - "9001"
+    ports:
+      - 1883:1883
+      - "9001:9001"
+    volumes: 
+      - ./configuration/eclipse-mosquitto/mosquitto.conf:/mosquitto/config/mosquitto.conf
+
+volumes:
+  node-red-data:
+  database-data:
+
+networks:
+  node-red-net:
+    name: localnet

@@ -92,8 +92,8 @@ namespace AMS.Mobile.ViewModels
                         FuelInfo = new List<FuelLevelInfo>
                         {
                             new FuelLevelInfo { FuelLevel = 0.50, Time = DateTime.Now },
-                            new FuelLevelInfo { FuelLevel = 0.55, Time = DateTime.Now.AddHours(-1) },
-                            new FuelLevelInfo { FuelLevel = 0.60, Time = DateTime.Now.AddHours(-2) },
+                            new FuelLevelInfo { FuelLevel = 0.50, Time = DateTime.Now.AddHours(-1) },
+                            new FuelLevelInfo { FuelLevel = 0.50, Time = DateTime.Now.AddHours(-2) },
                             new FuelLevelInfo { FuelLevel = 0.60, Time = DateTime.Now.AddHours(-3) },
                             new FuelLevelInfo { FuelLevel = 0.70, Time = DateTime.Now.AddHours(-4) },
                         }
@@ -102,27 +102,27 @@ namespace AMS.Mobile.ViewModels
                     {
                         TractorNumber = 2,
                         IsAtGarage = false,
-                        CurrentFuelLevel = 0.50,
+                        CurrentFuelLevel = 1,
                         FuelInfo = new List<FuelLevelInfo>
                         {
-                            new FuelLevelInfo { FuelLevel = 0.50, Time = DateTime.Now },
-                            new FuelLevelInfo { FuelLevel = 0.55, Time = DateTime.Now.AddHours(-1) },
-                            new FuelLevelInfo { FuelLevel = 0.60, Time = DateTime.Now.AddHours(-2) },
-                            new FuelLevelInfo { FuelLevel = 0.60, Time = DateTime.Now.AddHours(-3) },
-                            new FuelLevelInfo { FuelLevel = 0.70, Time = DateTime.Now.AddHours(-4) },
+                            new FuelLevelInfo { FuelLevel = 1, Time = DateTime.Now },
+                            new FuelLevelInfo { FuelLevel = 0.15, Time = DateTime.Now.AddHours(-1) },
+                            new FuelLevelInfo { FuelLevel = 0.30, Time = DateTime.Now.AddHours(-2) },
+                            new FuelLevelInfo { FuelLevel = 0.45, Time = DateTime.Now.AddHours(-3) },
+                            new FuelLevelInfo { FuelLevel = 0.40, Time = DateTime.Now.AddHours(-4) },
                         }
                     },
                     new TractorInfo
                     {
                         TractorNumber = 3,
                         IsAtGarage = true,
-                        CurrentFuelLevel = 0.50,
+                        CurrentFuelLevel = 0.10,
                         FuelInfo = new List<FuelLevelInfo>
                         {
-                            new FuelLevelInfo { FuelLevel = 0.50, Time = DateTime.Now },
-                            new FuelLevelInfo { FuelLevel = 0.55, Time = DateTime.Now.AddHours(-1) },
-                            new FuelLevelInfo { FuelLevel = 0.60, Time = DateTime.Now.AddHours(-2) },
-                            new FuelLevelInfo { FuelLevel = 0.60, Time = DateTime.Now.AddHours(-3) },
+                            new FuelLevelInfo { FuelLevel = 0.10, Time = DateTime.Now },
+                            new FuelLevelInfo { FuelLevel = 0.10, Time = DateTime.Now.AddHours(-1) },
+                            new FuelLevelInfo { FuelLevel = 0.15, Time = DateTime.Now.AddHours(-2) },
+                            new FuelLevelInfo { FuelLevel = 0.70, Time = DateTime.Now.AddHours(-3) },
                             new FuelLevelInfo { FuelLevel = 0.70, Time = DateTime.Now.AddHours(-4) },
                         }
                     },
