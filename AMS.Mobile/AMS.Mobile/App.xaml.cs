@@ -1,3 +1,5 @@
+using AMS.Mobile.Interfaces;
+using AMS.Mobile.Services;
 using AMS.Mobile.ViewModels;
 using AMS.Mobile.Views;
 using Prism;
@@ -29,6 +31,13 @@ namespace AMS.Mobile
             containerRegistry.RegisterForNavigation<NavigationPage>();
             containerRegistry.RegisterForNavigation<MainPage, MainPageViewModel>();
             containerRegistry.RegisterForNavigation<TractorDetailsPage, TractorDetailsPageViewModel>();
+
+            RegisterServices(containerRegistry);
+        }
+
+        private void RegisterServices(IContainerRegistry containerRegistry)
+        {
+            containerRegistry.RegisterScoped<ITractorInfoService, TractorInfoService>();
         }
     }
 }

@@ -30,11 +30,12 @@ namespace AMS.Mobile.ViewModels
             Chart = new LineChart() 
             { 
                 ValueLabelOrientation = Orientation.Horizontal,
-                LabelOrientation = Orientation.Horizontal,
+                LabelOrientation = Orientation.Vertical,
                 LabelTextSize = 50,
                 PointSize = 20,
                 LineMode = LineMode.Straight,
-                LineSize = 5
+                LineSize = 5,
+                Margin = 30
             };
         }
 
@@ -47,7 +48,7 @@ namespace AMS.Mobile.ViewModels
                 .OrderBy(i => i.Time)
                 .Select(i => new ChartEntry(Convert.ToSingle(i.FuelLevel))
                 {
-                    Label = i.Time.ToString("HH:mm"),
+                    Label = i.Time.ToString("HH:mm:ss"),
                     ValueLabel = i.FuelLevel.ToString(),
                     Color = SKColor.Parse("#76E25B")
                 });

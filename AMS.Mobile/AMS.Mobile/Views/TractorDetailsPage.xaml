@@ -76,7 +76,7 @@
             TextColor="Black" />
         <ProgressBar
             Grid.Row="5"
-            Progress="{Binding TractorInfo.CurrentFuelLevel}"
+            Progress="{Binding TractorInfo.CurrentFuelLevel, Converter={StaticResource PercentageConverter}}}"
             ProgressColor="LightGreen" />
         <StackLayout
             Grid.Row="6"
@@ -91,13 +91,13 @@
                 FontSize="16"
                 HorizontalOptions="FillAndExpand"
                 HorizontalTextAlignment="Center"
-                Text="0.5"
+                Text="50"
                 TextColor="Black" />
             <Label
                 FontSize="16"
                 HorizontalOptions="FillAndExpand"
                 HorizontalTextAlignment="End"
-                Text="1"
+                Text="100"
                 TextColor="Black" />
         </StackLayout>
         <Label
